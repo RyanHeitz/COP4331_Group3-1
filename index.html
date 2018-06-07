@@ -1,0 +1,211 @@
+<html>
+	<head>
+		<title>Cop 4331 Group 3</title>
+		<script type="text/javascript" src="js/javascript.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/css.css">
+	</head>
+	<body>
+                <h1>COP 4331 Group 3</h1>
+
+                <div id="loginDiv">
+	                Welcome to Group 3 Contact Manager<br />
+	                <br>
+	                Username: <input type="text" id="loginName"><br />
+	                <br>
+	                Password: <input type="password" id="loginPassword"><br />
+	                <br>
+                	<button type="button" id="createAccount" class="buttons2" onclick="doCreateAccount()"> Create Account </button>
+                	<button type="button" id="loginButton" class="buttons1" onclick="doLogin()"> Login </button>
+                	<br><br>
+	                <span id="loginResult"></span>
+                </div>
+
+                <div id="loggedInDiv" style="display:none; visibility:hidden;">
+                <br>
+			Logged in as <span id="userName"></span>
+			<button type="button" id="logoutButton" class="buttons" onclick="doLogout()"> Log Out </button>
+		</div>
+
+		<div id="accessUIDiv" style="display:none; visibility:hidden;">
+			<br />
+			<form name="home">
+				<input type="text" name="field" id="searchText">
+				<button type="button" id="searchContactButton" class="buttons3" onClick="search()"> Search Contact </button>
+				<!--<span id="contactSearchResult"></span>
+				<select id="contactList" style="display:none; visibility:hidden;">
+				
+				</select>-->
+				<body>
+
+		<table id="contactList">
+		  <tr>
+		    <th>Name</th>
+		    <th>Phone Number</th>
+		    <th>Email</th>
+		  </tr>
+		  <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		    <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  <tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		
+		</table>
+				<br><br>
+				<button type="button" id="AddNewContactButton" class="buttons" onClick="addPage()"> Add New Contact </button>
+
+				<button type="button" id="editContactButton" class="buttons" onClick="doEditContactPage()"> Edit Contact </button>
+
+				<button type="button" id="UserSettingsButton" class="buttons" onClick="userSettings()"> Account Settings </button>
+				<br><br>
+				<button type="button" id="DeleteContactButton"class="buttons" onClick="doDeleteContact();"> Delete Contact </button>
+				<br><br>
+			</form>
+		</div>
+
+		<div id="addPage" style="display:none; visibility:hidden;">
+			<br>
+			First name:&emsp; &ensp;&nbsp;<input type="text" id= "firstName">
+			<br><br>
+			Last name:&emsp; &ensp;<input type="text" id= "lastName">
+			<br><br>
+			Number:&emsp; <input type="text" id="num">
+			<br><br>
+			Email:&emsp; &ensp;<input type="text" id="email">
+			<br><br>
+			Address:&emsp; <input type="text" id="address">
+			<br><br>
+			City:&emsp; <input type="text" id="city">
+			<br><br>
+			State:&emsp; <input type="text" id="state">
+			<br><br>
+			Zip Code:&emsp; <input type="text" id="zip">
+			<br><br>
+			<button type="button" class="buttons" value="Cancel" onClick="cancel()"> Cancel </button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+			<button type="button" class="buttons" value="Add Contact" onClick="addContact();"> Add Contact </button>
+			<br><br><br>
+			<button type="button" class="buttons" onClick="userSettings()"> Account Settings </button>
+			<br><br>
+		</div>
+
+		<div id="contactPage" style="display:none; visibility:hidden;">
+			Current First name:&emsp; &ensp;&nbsp;<input type="text" id= "cfirstName">
+			<br><br>
+			Current Last name:&emsp; &ensp;<input type="text" id= "clastName">
+			<br><br>
+			Current Number:&emsp; <input type="text" id="cnum">
+			<br><br>
+			First name:&emsp; &ensp;&nbsp;<input type="text" id= "cnewfirstName">
+			<br><br>
+			Last name:&emsp; &ensp;<input type="text" id= "cnewlastName">
+			<br><br>
+			Number:&emsp; <input type="text" id="cnewnum">
+			<br><br>
+			Email:&emsp; &ensp;<input type="text" id="cemail">
+			<br><br>
+			Address:&emsp; <input type="text" id="caddress">
+			<br><br>
+			City:&emsp; <input type="text" id="ccity">
+			<br><br>
+			State:&emsp; <input type="text" id="cstate">
+			<br><br>
+			Zip Code:&emsp; <input type="text" id="czip">
+			<br><br>
+			<button type="button" class="buttons" value="Cancel" onClick="cancel()"> Cancel </button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+			<button type="button" class="buttons" value="update Contact" onClick="updateContact();"> Update Contact </button>
+			<span id="updateconResult"></span>
+			<br><br><br>
+			<button type="button" class="buttons" onClick="userSettings()"> Account Settings </button>
+			<br><br>
+		</div>
+
+		<div id="deletePage" style="display:none; visibility:hidden;">
+			<br>
+			Firstname:&emsp; &ensp;<input type="text" id="delFirstName">
+			<br><br>
+			Lastname:&emsp; &ensp;&nbsp;<input type="text" id="delLastName">
+			<br><br>
+			Number:&emsp; &ensp;<input type="text" id="delNumber">
+			<br><br>
+			<button type="button" class="buttons" value="Cancel" onClick="cancel()"> Cancel </button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+			<button type="button" class="buttons" value="delete Contact" onClick="deleteContact();"> Delete Contact </button>
+			<span id="delContactResult"></span>
+			<br><br>
+		</div>
+
+
+
+
+		<div id="usersPage" style="display:none; visibility:hidden;">
+			<br>
+			Firstname:&emsp; &ensp;<input type="text" id="firstNameUsers">
+			<br><br>
+			Lastname:&emsp; &ensp;&nbsp;<input type="text" id="lastNameUsers">
+			<br><br>
+			Username:&emsp; &ensp;<input type="text" id="usernameUsers">
+			<br><br>
+			Password:&emsp; <input type="password" id="passwordUsers">
+			<br><br>
+			<button type="button" class="buttons" onClick="cancel()"> Cancel </button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+			<button type="button" class="buttons" onClick="updateAccount()"> Update Account </button>
+			<span id="updateAccResult"></span>
+			<br><br>
+		</div>
+
+		<div id="createAccountPage" style="display:none; visibility:hidden;">
+			<br>
+			Firstname:&emsp; &ensp;<input type="text" id="firstNameUsers1">
+			<br><br>
+			Lastname:&emsp; &ensp;&nbsp;<input type="text" id="lastNameUsers1">
+			<br><br>
+			Username:&emsp; &ensp;<input type="text" id="usernameUsers1">
+			<br><br>
+			Password:&emsp; <input type="password" id="passwordUsers1">
+			<br><br>
+			<button type="button" class="buttons" value="Back" onClick="back()"> Back </button>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+			<button type="button" class="buttons" value="Create Account" onClick="createAccount()"> Create Account </button>
+			<br><br>
+		</div>
+
+		<!--	Search for Color: <input type="text" id="searchText">
+			<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color </button><br />
+			<span id="colorSearchResult"></span>
+			<select id="colorList" style="display:none; visibility:hidden;">
+				<!-- <option value="volvo">Volvo</option> -->
+		<!--	</select><br /><br />
+
+			Add Color: <input type="text" id="colorText">
+			<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
+			<span id="colorAddResult"></span> -->
+	</body>
+
+</html>
