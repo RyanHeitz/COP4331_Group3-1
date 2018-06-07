@@ -1,4 +1,4 @@
 # COP4331_Group3
 
-# installation guide:
-# there are none
+# installation instructions:
+# go to cop4331project.com
